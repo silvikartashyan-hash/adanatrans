@@ -1,1 +1,269 @@
-# adanatrans
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <title>Adana Transs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F0E68C;
+      color: #008000;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      font-family: 'Lobster', cursive;
+      background: linear-gradient(45deg, #008000, #DAA520);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px #006400;
+      margin-bottom: 10px;
+    }
+    h2 { font-size: 36px; margin-bottom: 8px; }
+    h3 { font-size: 48px; margin-bottom: 10px; }
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: 0 auto 20px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .slides { display: none; width: 100%; height: 350px; object-fit: cover; border-radius: 12px; }
+
+    .service-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .card {
+      flex: 1;
+      max-width: 200px;
+      background: white;
+      border: 2px solid #008000;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .card:hover { background: #f0fff0; transform: translateY(-5px); }
+    .card h3 { font-size: 20px; margin-bottom: 10px; color: #006400; }
+    .card .emoji { font-size: 40px; }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #008000;
+      font-size: 16px;
+    }
+    button {
+      background: #008000;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background: #006400; }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #008000;
+      background: #008000;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      min-width: 100px;
+    }
+    .back-button:hover { background: #f0f0f0; color: #006400; }
+  </style>
+</head>
+<body id="mainBody">
+  <!-- стартовая страница -->
+  <div id="startPage">
+    <h1>Adana Transs</h1>
+    <!-- QR код под заголовком -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ВАША_ССЫЛКА" alt="QR Code">
+
+    <h2>Մենք Ձեր վստահելի ուղեկիցն ենք ճանապարհին 🛤️</h2>
+    <h3>Դեպի Վրաստան 🌏</h3>
+
+    <div class="slideshow-container">
+      <img class="slides" src="https://www.advantour.com/img/georgia/images/tbilisi.jpg">
+      <img class="slides" src="https://www.georgianholidays.com/storage/lDkXgQTVTu7iX1TDm9I9o78BjKY0VvJ00gnpBzSH.jpg">
+      <img class="slides" src="https://cdn.internationalwealth.info/wp-content/uploads/2018/07/life-Batumi.jpg">
+      <img class="slides" src="https://turyvgruziju.ru/wp-content/uploads/2019/03/kobuleti_gruziya_plyazh.jpg">
+      <img class="slides" src="https://gotrip.ge/blog/wp-content/uploads/2023/01/shutterstock_1553047886.jpg">
+      <img class="slides" src="https://static.tildacdn.com/tild6335-3962-4331-a439-316365636263/1.jpg">
+    </div>
+
+    <!-- два квадрата -->
+    <div class="service-cards">
+      <div class="card" onclick="openForm('passenger')">
+        <h3>Ուղևորափոխադրում</h3>
+        <div class="emoji"> &#128106;</div>
+      </div>
+      <div class="card" onclick="openForm('cargo')">
+        <h3>Բեռնափոխադրում</h3>
+        <div class="emoji">🧳</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- форма пассажиров -->
+  <div id="formPassenger" style="display:none;">
+    <p><b>Մուտքագրիր տվյալները և ընտրիր օրը</b></p>
+    <form method="POST" action="https://sheet.best/api/sheets/ВАШ_ID" onsubmit="return showThankYou(event)">
+      <input type="text" name="Անուն" placeholder="Անուն" required>
+      <input type="tel" name="Հեռախոս" placeholder="Հեռախոս" required>
+
+      <select name="Օր" required>
+        <option value="">Ընտրեք օրը</option>
+        <option value="8">8</option>
+        <option value="18">18</option>
+        <option value="28">28</option>
+      </select>
+
+      <select name="Ամիս" required>
+        <option value="">Ընտրեք ամիսը</option>
+        <option value="Հունվար">Հունվար</option>
+        <option value="Փետրվար">Փետրվար</option>
+        <option value="Մարտ">Մարտ</option>
+        <option value="Ապրիլ">Ապրիլ</option>
+        <option value="Մայիս">Մայիս</option>
+        <option value="Հունիս">Հունիս</option>
+        <option value="Հուլիս">Հուլիս</option>
+        <option value="Օգոստոս">Օգոստոս</option>
+        <option value="Սեպտեմբեր">Սեպտեմբեր</option>
+        <option value="Հոկտեմբեր">Հոկտեմբեր</option>
+        <option value="Նոյեմբեր">Նոյեմբեր</option>
+        <option value="Դեկտեմբեր">Դեկտեմբեր</option>
+      </select>
+
+      <select name="Տարի" required>
+        <option value="">Ընտրեք տարին</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+      </select>
+
+      <button type="submit">Ուղարկել</button>
+    </form>
+  </div>
+
+  <!-- форма грузов -->
+  <div id="formCargo" style="display:none;">
+    <p><b>Մուտքագրիր տվյալները և ընտրիր օրը</b></p>
+    <form method="POST" action="https://sheet.best/api/sheets/ВАШ_ID" onsubmit="return showThankYou(event)">
+      <input type="text" name="Անուն" placeholder="Անուն" required>
+      <input type="tel" name="Հեռախոս" placeholder="Հեռախոս" required>
+      <input type="number" name="Կիլոգրամ" placeholder="Քաշ (կգ)" required>
+
+      <select name="Օր" required>
+        <option value="">Ընտրեք օրը</option>
+        <option value="8">8</option>
+        <option value="18">18</option>
+        <option value="28">28</option>
+      </select>
+
+      <select name="Ամիս" required>
+        <option value="">Ընտրեք ամիսը</option>
+        <option value="Հունվար">Հունվար</option>
+        <option value="Փետրվար">Փետրվար</option>
+        <option value="Մարտ">Մարտ</option>
+        <option value="Ապրիլ">Ապրիլ</option>
+        <option value="Մայիս">Մայիս</option>
+        <option value="Հունիս">Հունիս</option>
+        <option value="Հուլիս">Հուլիս</option>
+        <option value="Օգոստոս">Օգոստոս</option>
+        <option value="Սեպտեմբեր">Սեպտեմբեր</option>
+        <option value="Հոկտեմբեր">Հոկտեմբեր</option>
+        <option value="Նոյեմբեր">Նոյեմբեր</option>
+        <option value="Դեկտեմբեր">Դեկտեմբեր</option>
+      </select>
+
+      <select name="Տարի" required>
+        <option value="">Ընտրեք տարին</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+      </select>
+
+      <button type="submit">Ուղարկել</button>
+    </form>
+  </div>
+
+  <!-- страница 3 -->
+  <div id="thankYouPage" style="display:none;">
+    <h1>Նորից գրանցվել 😊</h1>
+    <button class="back-button" onclick="goStart()">Հետ ↩</button>
+  </div>
+
+  <script>
+    // слайдшоу
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+    function showSlides() {
+      for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
+      slideIndex++;
+      if(slideIndex>slides.length) slideIndex=1;
+      slides[slideIndex-1].style.display="block";
+      setTimeout(showSlides,3000);
+    }
+    showSlides();
+
+    // переходы между страницами
+    function openForm(type){
+      document.getElementById("startPage").style.display="none";
+      document.getElementById("formPassenger").style.display="none";
+      document.getElementById("formCargo").style.display="none";
+      document.getElementById("thankYouPage").style.display="none";
+      if(type==="passenger"){
+        document.getElementById("formPassenger").style.display="block";
+      } else {
+        document.getElementById("formCargo").style.display="block";
+      }
+    }
+    function goStart(){
+      document.getElementById("formPassenger").style.display="none";
+      document.getElementById("formCargo").style.display="none";
+      document.getElementById("thankYouPage").style.display="none";
+      document.getElementById("startPage").style.display="block";
+    }
+
+    // страница 3 — спасибо
+    function showThankYou(e){
+      e.preventDefault();
+      const form = e.target;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(()=>{
+        document.getElementById("formPassenger").style.display="none";
+        document.getElementById("formCargo").style.display="none";
+        document.getElementById("thankYouPage").style.display="block";
+      });
+      return false;
+    }
+  </script>
+</body>
+</html>
