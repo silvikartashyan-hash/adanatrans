@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="hy">
 <head>
   <meta charset="UTF-8">
@@ -126,7 +126,7 @@
   <!-- форма пассажиров -->
   <div id="formPassenger" style="display:none;">
     <p><b>Մուտքագրիր տվյալները և ընտրիր օրը</b></p>
-    <form method="POST" action="https://sheet.best/api/sheets/ВАШ_ID" onsubmit="return showThankYou(event)">
+    <form method="POST" action="https://api.sheetbest.com/sheets/335af0f0-1462-4474-afe2-1e4c48ef1d36" onsubmit="return showThankYou(event)">
       <input type="text" name="Անուն" placeholder="Անուն" required>
       <input type="tel" name="Հեռախոս" placeholder="Հեռախոս" required>
 
@@ -169,7 +169,7 @@
   <!-- форма грузов -->
   <div id="formCargo" style="display:none;">
     <p><b>Մուտքագրիր տվյալները և ընտրիր օրը</b></p>
-    <form method="POST" action="https://sheet.best/api/sheets/ВАШ_ID" onsubmit="return showThankYou(event)">
+    <form method="POST" action="https://api.sheetbest.com/sheets/335af0f0-1462-4474-afe2-1e4c48ef1d36" onsubmit="return showThankYou(event)">
       <input type="text" name="Անուն" placeholder="Անուն" required>
       <input type="tel" name="Հեռախոս" placeholder="Հեռախոս" required>
       <input type="number" name="Կիլոգրամ" placeholder="Քաշ (կգ)" required>
